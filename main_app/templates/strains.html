@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron" id="strain-list-jumbotron">
+	<div class="container">
+		<div class="header">
+			<h1>Drain List</h1>
+			<p>Here you will find the latest strains. Search through and find something you like! Then simply place your order or arrange to pick up if it is in your area.</p>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="page-header">
+		<h1>Strain List <small>choose wisely...</small></h1>
+	</div>
+	<ul class="nav nav-tabs">
+		<li role="presentation" class="active"><a data-toggle="tab" href="#drain">All Strains</a></li>
+		<li role="presentation"><a data-toggle="tab" href="#indica">Indicas</a></li>
+		<li role="presentation"><a data-toggle="tab" href="#sativa">Sativas</a></li>
+		<li role="presentation"><a data-toggle="tab" href="#hybrid">Hybrids</a></li>
+	</ul>
+	<br/>
+	<div class="tab-content">
+		<div id="drain" class="tab-pane fade in active">
+			<div class="container">
+				<div class="row">
+				{% for strain in strains %}					
+					<div class="col-md-2 less-padding">
+						<a href="{% url 'detail' user.username strain.slug %}"> 
+							<div class="{{ strain.strain_type }}">
+								<p>{{ strain.strain_type }}</p>
+								<h1>{{ strain.initials }}</h1>
+								<p>{{ strain.name }}</p>
+							</div>
+						</a>
+					</div>
+					{% if strains.count > '6' %}
+					</div><div class="row">
+					{% endif %}
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div id="indica" class="tab-pane fade">
+			<div class="container">
+				<div class="row">
+				
+				{% for strain in strains %}
+				{% if strain.strain_type == 'indica' %}
+					<div class="col-md-2 less-padding">
+						<a href="{% url 'detail' user.username strain.slug %}"> 
+							<div class="{{ strain.strain_type }}">
+								<p>{{ strain.strain_type }}</p>
+								<h1>{{ strain.initials }}</h1>
+								<p>{{ strain.name }}</p>
+							</div>
+						</a>
+					</div>
+					{% if strains.count > '6' %}
+				</div><div class="row">
+					{% endif %}
+				{% endif %}
+				{% endfor %}
+				
+				</div>
+			</div>
+		</div>
+		<div id="sativa" class="tab-pane fade">
+			<div class="container">
+				<div class="row">
+				
+				{% for strain in strains %}
+				{% if strain.strain_type == 'sativa' %}
+					<div class="col-md-2 less-padding">
+						<a href="{% url 'detail' user.username strain.slug %}"> 
+							<div class="{{ strain.strain_type }}">
+								<p>{{ strain.strain_type }}</p>
+								<h1>{{ strain.initials }}</h1>
+								<p>{{ strain.name }}</p>
+							</div>
+						</a>
+					</div>
+					{% if strains.count > '6' %}
+					</div><div class="row">
+					{% endif %}
+				{% endif %}
+				{% endfor %}
+				
+				</div>
+			</div>
+		</div>
+		<div id="hybrid" class="tab-pane fade">
+			<div class="container">
+				<div class="row">
+				
+				{% for strain in strains %}
+				{% if strain.strain_type == 'hybrid' %}
+					<div class="col-md-2 less-padding">
+						<a href="{% url 'detail' user.username strain.slug %}"> 
+							<div class="{{ strain.strain_type }}">
+								<p>{{ strain.strain_type }}</p>
+								<h1>{{ strain.initials }}</h1>
+								<p>{{ strain.name }}</p>
+							</div>
+						</a>
+					</div>
+					{% if strains.count > '6' %}
+					</div><div class="row">
+					{% endif %}
+				{% endif %}
+				{% endfor %}
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

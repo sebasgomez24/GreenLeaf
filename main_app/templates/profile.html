@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div class="jumbotron" id="profile-jumbotron">
+	<div class="header-pages">
+		<img class="profile-leaf" src="{% static 'images/leaf.png' %}"/>
+		<h2>Welcome {{ user.username }}, this is your dashboard</h2>
+	</div>
+</div>
+<div class="container">    
+	<div class="row">
+		<div class="col-sm-4 col-sm-push-8">
+			<ol class="breadcrumb">
+				<li><a href="strains/">drainlist</a></li>
+				<li class="active"><a href="{% url 'profile' user %}">{{ user.username }}</a></li>
+			</ol>
+			<div class="small-container">
+				<div class="page-header">
+					<h2>Upload a strain</h2>
+				</div>
+				{% if user.is_authenticated %}
+				<form class="strain-form" action="upload-strain/" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{% bootstrap_form strain_form %}
+					<br/>					
+					<button class="btn btn-danger" type="submit" value="submit">add to drain</button>
+				</form><br/><hr/>
+			{% endif %}
+			</div>
+		</div>
+		<div class="col-sm-8 col-sm-pull-4">
+				<br/>                
+				<ul class="nav nav-tabs">
+					<li role="presentation" class="active"><a data-toggle="tab" href="#drain">My Strains</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#indica">Indicas</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#sativa">Sativas</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#hybrid">Hybrids</a></li>
+				</ul>
+				<br/>
+				<div class="tab-content">
+					<div id="drain" class="tab-pane fade in active">                        
+						<div class="row">
+						{% if messages %}
+						{% for message in messages %}
+						{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+							<div class="alert alert-danger">
+								<div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+									<strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Important: </strong> {{ message }}
+								</div>
+							</div>
+						{% else %}
+							<div class="alert alert-success">
+								<div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+									<strong><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+									Success! </strong> {{ message }}
+								</div>
+							</div>
+						{% endif %}
+						{% endfor %}
+						{% endif %}
+						{% for strain in strains %}
+						{% if strain.user == user %}                 
+							<div class="col-sm-3 less-padding">
+								<a href="{% url 'detail' user.username strain.slug %}"> 
+									<div class="{{ strain.strain_type }}">
+										<p>{{ strain.strain_type }}</p>
+										<h1>{{ strain.initials }}</h1>
+										<p>{{ strain.name }}</p>
+									</div>
+								</a>
+							</div>
+							{% if strains.count > '4' %}
+							</div><div class="row">
+							{% endif %}
+						{% endif %}
+						{% endfor %}						
+						</div>                        
+					</div>
+					<div id="indica" class="tab-pane fade">                        
+						<div class="row">						
+						{% for strain in strains %}
+						{% if strain.user == user %}
+						{% if strain.strain_type == 'indica' %}
+							<div class="col-sm-3 less-padding">
+								<a href="{% url 'detail' user.username strain.slug %}"> 
+									<div class="{{ strain.strain_type }}">
+										<p>{{ strain.strain_type }}</p>
+										<h1>{{ strain.initials }}</h1>
+										<p>{{ strain.name }}</p>
+									</div>
+								</a>
+							</div>
+							{% if strains.count > '4' %}
+							</div><div class="row">
+							{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endfor %}						
+						</div>                        
+					</div>
+					<div id="sativa" class="tab-pane fade">                        
+						<div class="row">
+						
+						{% for strain in strains %}
+						{% if strain.user == user %}
+						{% if strain.strain_type == 'sativa' %}
+							<div class="col-sm-3 less-padding">
+								<a href="{% url 'detail' user.username strain.slug %}"> 
+									<div class="{{ strain.strain_type }}">
+										<p>{{ strain.strain_type }}</p>
+										<h1>{{ strain.initials }}</h1>
+										<p>{{ strain.name }}</p>
+									</div>
+								</a>
+							</div>
+							{% if strains.count > '4' %}
+							</div><div class="row">
+							{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endfor %}
+						</div>                        
+					</div>
+					<div id="hybrid" class="tab-pane fade">                        
+						<div class="row">						
+						{% for strain in strains %}
+						{% if strain.user == user %}
+						{% if strain.strain_type == 'hybrid' %}
+							<div class="col-sm-3 less-padding">
+								<a href="{% url 'detail' user.username strain.slug %}"> 
+									<div class="{{ strain.strain_type }}">
+										<p>{{ strain.strain_type }}</p>
+										<h1>{{ strain.initials }}</h1>
+										<p>{{ strain.name }}</p>
+									</div>
+								</a>
+							</div>
+							{% if strains.count > '4' %}
+							</div><div class="row">
+							{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endfor %}						
+						</div>                        
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

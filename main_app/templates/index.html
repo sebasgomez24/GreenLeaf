@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div id="main-jumbotron" class="jumbotron">
+
+    <div class="container">
+        <div class="header">
+        	<div class="container">
+			    {% if messages %}
+			    <div class="alert alert-danger">
+			        {% for message in messages %}
+			        <div {% if message.tags %} class="{{ message.tags }}" {% endif %}><strong>Attention! </strong>{{ message }}</div>
+			        {% endfor %}
+			    </div>
+			    {% endif %}
+			</div>
+            <h1>Welcome to GreenLeaf</h1>
+            <p>Register to have access to your store or our stock</p>
+            <div class="enter-btns">
+            	<br/>
+            	<button type="button" class="btn btn-default enter-btn" id="1">
+            		Buy <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            	</button>
+            	<br/><br/>
+            	<button type="button" class="btn btn-default enter-btn" id="2">
+            		Sell <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            	</button>            	
+            </div>
+
+			<div class="container register">
+			    <form class="register-form" enctype="multipart/form-data" method="POST" action="/register/">
+			        {% csrf_token %}
+			        {% bootstrap_form register_form %}
+			        <br/>
+			        <button class="btn btn-default green" type="submit" value="/">register</button>
+			    </form>
+			</div>         
+        </div>
+    </div>
+</div>
+
+{% endblock %}

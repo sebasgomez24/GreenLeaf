@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block content %}
+
+	{% if strain.strain_type == 'indica' %}
+	<div class="jumbotron {{strain.strain_type}}-banner">
+		<div class="strain-banner">
+			<p>{{ strain.strain_type }}</p>
+			<h1>{{ strain.initials }}</h1>
+			<p>{{ strain.name }}</p>
+		</div>
+	</div>
+	{% elif strain.strain_type == 'sativa' %}
+	<div class="jumbotron {{strain.strain_type}}-banner">
+		<div class="strain-banner">
+			<p>{{ strain.strain_type }}</p>
+			<h1>{{ strain.initials }}</h1>
+			<p>{{ strain.name }}</p>
+		</div>
+	</div>
+	{% elif strain.strain_type == 'hybrid' %}
+	<div class="jumbotron {{strain.strain_type}}-banner">
+		<div class="strain-banner">
+			<p>{{ strain.strain_type }}</p>
+			<h1>{{ strain.initials }}</h1>
+			<p>{{ strain.name }}</p>
+		</div>
+	</div>
+	{% endif %}
+	<div class="row">
+		<div class="container">
+			<div class="page-header">
+				<h1>Update <span class="update-strain-span">{{strain.name}}</span> <small>don't forget to submit your changes...</small></h1>
+			</div>			
+			<button type="button" id="delete-btn" class="btn btn-danger">
+				Delete this strain <span class="glyphicon glyphicon-trash"></span>
+			</button>
+			<br/><br/>
+			<form class="update-strain-form" action="" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% bootstrap_form form %}
+				<br/>
+				<button class="btn btn-primary" type="submit" value="submit"><a href="{% url 'delete' user.username %}">update {{strain.name}}</a></button>
+			</form>
+			<hr/>
+		</div>
+	</div>
+
+{% endblock %}

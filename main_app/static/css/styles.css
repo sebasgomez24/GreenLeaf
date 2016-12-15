@@ -1,0 +1,402 @@
+.progress-bar-color-1 {
+  background: #D8600E; }
+
+.progress-bar-color-2 {
+  background: #FFDE00; }
+
+.progress-bar-color-3 {
+  background: #835E9B; }
+
+.progress-bar-color-4 {
+  background: #27556C; }
+
+.progress-bar-color-5 {
+  background: #67B174; }
+
+@font-face {
+  font-family: quicksand;
+  src: url(../fonts/Quicksand-Regular.otf); }
+@font-face {
+  font-family: montserrat-bold;
+  src: url(../fonts/Montserrat-SemiBold.otf); }
+@font-face {
+  font-family: montserrat;
+  src: url(../fonts/Montserrat-Regular.otf); }
+@font-face {
+  font-family: montserrat-light;
+  src: url(../fonts/Montserrat-UltraLight.otf); }
+/* --- Mixins --- */
+/* --- OVERRIDE --- */
+.less-padding {
+  padding: 2.5px !important; }
+
+html {
+  overflow-x: hidden; }
+
+.page-header {
+  border-bottom: none; }
+
+h1 {
+  font-family: montserrat-bold; }
+
+h2 {
+  font-family: montserrat; }
+
+h3 {
+  font-family: montserrat-light; }
+
+p, li, form {
+  font-family: quicksand; }
+
+a {
+  color: #000; }
+  a:hover {
+    color: #8AA236;
+    text-decoration: none; }
+  a:visited {
+    text-decoration: none; }
+
+input {
+  border-radius: 5px; }
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+  background: #8AA236; }
+
+/* --- Navigation --- */
+nav {
+  background: transparent !important;
+  border-bottom: none !important;
+  color: white; }
+
+@media (min-width: 1000px) {
+  #search-bar {
+    width: 700px; } }
+
+.search-form {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0); }
+
+#base-menu {
+  padding-right: 25px;
+  padding-left: 25px; }
+
+.navbar {
+  margin-bottom: 0; }
+
+.navbar-brand {
+  padding-top: 0;
+  padding-right: 0; }
+  .navbar-brand img {
+    height: 75px; }
+
+.leaf-logo {
+  margin: 5px;
+  height: 30px; }
+
+.form-inline .control-label {
+  padding: 15px; }
+
+#login-btn {
+  background: transparent;
+  color: white; }
+  #login-btn:hover {
+    background: white;
+    color: #000; }
+
+/* --- Forms --- */
+.login-form {
+  padding: 10px; }
+
+.banner-form {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10%;
+  text-align: center; }
+
+.helptext {
+  font-size: 10px; }
+
+/* --- Index --- */
+.enter-btns {
+  width: 300px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0); }
+
+.enter-btn {
+  width: 100%;
+  font-family: montserrat, quicksand;
+  color: white;
+  background: transparent;
+  font-size: 1.5em; }
+
+#main-jumbotron {
+  background: url("../images/aurora_borealis.jpg");
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  overflow: hidden; }
+
+#strain-list-jumbotron {
+  background: #8AA236;
+  height: 400px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  top: 0; }
+
+.header {
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .header h1 {
+    color: white;
+    text-align: center; }
+  .header p {
+    color: white;
+    text-align: center; }
+
+.header-pages {
+  height: auto;
+  width: auto;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0); }
+  .header-pages h2, .header-pages h3 {
+    text-align: center;
+    color: white; }
+
+.profile-leaf {
+  height: 50px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0); }
+
+.register {
+  width: 50%;
+  display: none; }
+  .register a {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0); }
+
+form.register-form {
+  color: white;
+  background: transparent;
+  border-radius: 5px;
+  padding: 25px; }
+
+/* --- Strains --- */
+.indica {
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  padding-top: 2.5px !important;
+  color: white;
+  background: #AA4139; }
+  .indica p {
+    padding: 5px 10px;
+    float: right;
+    font-family: quicksand; }
+    .indica p:last-of-type {
+      position: absolute;
+      bottom: 0;
+      text-alight: right; }
+  .indica h1 {
+    font-family: montserrat-bold;
+    font-size: 3em;
+    width: 60%;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .indica:hover {
+    color: #AA4139;
+    background: white; }
+
+.sativa {
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  padding-top: 2.5px !important;
+  color: white;
+  background: #236467; }
+  .sativa p {
+    padding: 5px 10px;
+    float: right;
+    font-family: quicksand; }
+    .sativa p:last-of-type {
+      position: absolute;
+      bottom: 0;
+      text-alight: right; }
+  .sativa h1 {
+    font-family: montserrat-bold;
+    font-size: 3em;
+    width: 60%;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .sativa:hover {
+    color: #236467;
+    background: white; }
+
+.hybrid {
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  padding-top: 2.5px !important;
+  color: white;
+  background: #592A71; }
+  .hybrid p {
+    padding: 5px 10px;
+    float: right;
+    font-family: quicksand; }
+    .hybrid p:last-of-type {
+      position: absolute;
+      bottom: 0;
+      text-alight: right; }
+  .hybrid h1 {
+    font-family: montserrat-bold;
+    font-size: 3em;
+    width: 60%;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .hybrid:hover {
+    color: #592A71;
+    background: white; }
+
+/* --- User Profile --- */
+input#id_image {
+  font-family: quicksand !important;
+  border-radius: 25px !important; }
+
+#profile-jumbotron {
+  background: #8AA236; }
+
+/* --- Strain Detail --- */
+.indica-banner {
+  height: 300px;
+  background: #AA4139; }
+
+.sativa-banner {
+  height: 300px;
+  background: #236467; }
+
+.hybrid-banner {
+  height: 300px;
+  background: #592A71; }
+
+.strain-banner {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 175px;
+  height: 165px;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white; }
+  .strain-banner h1 {
+    text-align: center; }
+  .strain-banner p {
+    padding: 0 5px;
+    text-align: right; }
+    .strain-banner p:last-of-type {
+      text-align: left; }
+
+.detail-leaf {
+  height: 200px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0); }
+
+.description {
+  padding: 50px 0; }
+
+.center-horizontally {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 50%;
+  text-align: center; }
+
+#progress-bar-width-1 {
+  width: 10%; }
+
+#progress-bar-width-2 {
+  width: 20%; }
+
+#progress-bar-width-3 {
+  width: 30%; }
+
+#progress-bar-width-4 {
+  width: 40%; }
+
+#progress-bar-width-5 {
+  width: 50%; }
+
+#progress-bar-width-6 {
+  width: 60%; }
+
+#progress-bar-width-7 {
+  width: 70%; }
+
+#progress-bar-width-8 {
+  width: 80%; }
+
+#progress-bar-width-9 {
+  width: 90%; }
+
+#progress-bar-width-10 {
+  width: 100%; }
+
+/* --- Update Page --- */
+#green {
+  background: #8AA236; }
+  #green h1, #green h2, #green p {
+    text-align: center;
+    color: white; }
+
+/* --- Update Strain --- */
+form.update-strain-form {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0); }
+
+.page-header span.update-strain-span {
+  font-size: 1.5em;
+  color: #8AA236; }
+
+/* --- Delete Strain --- */
+button#delete-btn.btn.btn-danger {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0); }
+
+/*# sourceMappingURL=styles.css.map */

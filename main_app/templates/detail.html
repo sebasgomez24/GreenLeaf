@@ -1,0 +1,521 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+	{% if strain.strain_type == 'indica' %}
+	<div class="jumbotron {{strain.strain_type}}-banner">
+		<div class="strain-banner">
+			<p>{{ strain.strain_type }}</p>
+			<h1>{{ strain.initials }}</h1>
+			<p>{{ strain.name }}</p>
+		</div>
+	</div>
+	<div class="container">
+		<hr/>
+		<div class="page-header">
+			<h1>{{ strain.name }} <small>{{ strain.strain_type }}...</small></h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<img class="detail-leaf" src="{% static 'images/leaf-circle.png' %}" />
+			</div>
+			<div class="col-sm-8">
+				<div class="description">
+					<p>{{ strain.description }}</p>
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="attributes">
+			<div class="center-horizontally">
+				<div class="page-header">
+					<h2>Strain attributes for <small>{{ strain.name }}...</small></h2>
+				</div>
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation" class="active"><a data-toggle="tab" href="#effects">Effects</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#medical">Medical</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#drawbacks">Drawbacks</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="effects" class="tab-pane fade in active">
+						<br/><br/>
+						<p>Sleepyness</p>			
+						<div class="progress">							
+							<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ sleepyness }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ sleepyness }}">							
+							</div>
+						</div>
+						<p>Creativity</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ creativity }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ creativity }}"> 
+							
+							</div>
+						</div>
+						<p>Munchies</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ munchies }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ munchies }}"> 
+							
+							</div>
+						</div>
+						<p>Giggles</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ giggles }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ giggles }}"> 
+							
+							</div>
+						</div>
+						<p>Happyness</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-5" role="progressbar" aria-valuenow="{{ happy }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ happy }}"> 
+							
+							</div>
+						</div>
+					</div>
+					<div id="medical" class="tab-pane fade">
+						<br/><br/>
+						<p>Pain</p>			
+						<div class="progress">
+
+							<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ pain }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ pain }}"> 							
+							</div>
+						</div>
+						<p>Insomnia</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ insomnia }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ insomnia }}"> 
+							
+							</div>
+						</div>
+						<p>Depression</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ depression }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ depression }}"> 
+							
+							</div>
+						</div>
+						<p>Lack of Appetite</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ lack_of_appetite }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ lack_of_appetite }}"> 
+							
+							</div>
+						</div>
+					</div>
+					<div id="drawbacks" class="tab-pane fade">
+						<br/><br/>	
+						<p>Paranoia</p>					
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ paranoia }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ paranoia }}"> 
+							
+							</div>
+						</div>
+						<p>Cotton Mouth</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ cotton_mouth }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ cotton_mouth }}"> 
+							
+							</div>
+						</div>
+						<p>Dry Eyes</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ dry_eyes }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ dry_eyes }}"> 
+							
+							</div>
+						</div>
+						<p>Headache</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ headache }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ headache }}"> 
+							
+							</div>
+						</div>
+					</div>
+				</div><br/>
+			</div>
+		</div>
+		<hr/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+	</div>
+	<div class="row">
+		<div class="jumbotron" id="profile-jumbotron">
+			<div class="header-pages">
+				<h2>Find this strain at <small>{{ user.username }}'s</small> store</h2>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="col-sm-6">
+				<h3>{{ user.username }}'s location</h3>
+				<hr/>
+				<div class="user-map"></div>
+			</div>
+			<div class="col-sm-6">
+				<h3>{{ strain.name }} prices</h3>
+				<hr/>
+				<div class="row">
+					<div class="col-sm-4">
+						<p>Please select an option</p>
+						<select class="form-control">
+							<option value="1/8oz">1/8 oz  -  ${{ eighth }}.00</option>
+							<option value="1/8oz">1/4 oz  -  ${{ quarter }}.00</option>
+							<option value="1/8oz">1/2 oz  -  ${{ half }}.00</option>
+							<option value="1/8oz">1 oz  -  ${{ ounce }}.00</option>
+						</select>
+					</div>
+					<div class="col-sm-4">
+						<p>Please specity quantity</p>
+						<input type="number" class="form-control" placeholder="quantity">
+					</div>
+					<div class="col-sm-4">
+						<p>Total Price</p>
+
+					</div>
+				</div>
+				<br/>
+				<hr/>
+				<h3>{{ strain.name }} reviews</h3>
+			</div>
+		</div>
+	</div>
+	{% else %}
+		{% if strain.strain_type == 'sativa' %}
+		<div class="jumbotron {{strain.strain_type}}-banner">
+			<div class="strain-banner">
+				<p>{{ strain.strain_type }}</p>
+				<h1>{{ strain.initials }}</h1>
+				<p>{{ strain.name }}</p>
+			</div>
+		</div>
+		<div class="container">
+			<hr/>
+			<div class="page-header">
+				<h1>{{ strain.name }} <small>{{ strain.strain_type }}...</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<img class="detail-leaf" src="{% static 'images/leaf-circle.png' %}" />
+				</div>
+				<div class="col-sm-8">
+					<div class="description">
+						<p>{{ strain.description }}</p>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<div class="attributes">
+				<div class="center-horizontally">
+					<div class="page-header">
+						<h2>Strain attributes for <small>{{ strain.name }}...</small></h2>
+					</div>
+					<ul class="nav nav-pills nav-justified">
+						<li role="presentation" class="active"><a data-toggle="tab" href="#effects">Effects</a></li>
+						<li role="presentation"><a data-toggle="tab" href="#medical">Medical</a></li>
+						<li role="presentation"><a data-toggle="tab" href="#drawbacks">Drawbacks</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="effects" class="tab-pane fade in active">
+							<br/><br/>
+							<p>Sleepyness</p>			
+							<div class="progress">							
+								<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ sleepyness }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ sleepyness }}">							
+								</div>
+							</div>
+							<p>Creativity</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ creativity }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ creativity }}"> 
+								
+								</div>
+							</div>
+							<p>Munchies</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ munchies }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ munchies }}"> 
+								
+								</div>
+							</div>
+							<p>Giggles</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ giggles }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ giggles }}"> 
+								
+								</div>
+							</div>
+							<p>Happyness</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-5" role="progressbar" aria-valuenow="{{ happy }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ happy }}"> 
+								
+								</div>
+							</div>
+						</div>
+						<div id="medical" class="tab-pane fade">
+							<br/><br/>
+							<p>Pain</p>			
+							<div class="progress">
+
+								<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ pain }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ pain }}"> 							
+								</div>
+							</div>
+							<p>Insomnia</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ insomnia }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ insomnia }}"> 
+								
+								</div>
+							</div>
+							<p>Depression</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ depression }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ depression }}"> 
+								
+								</div>
+							</div>
+							<p>Lack of Appetite</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ lack_of_appetite }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ lack_of_appetite }}"> 
+								
+								</div>
+							</div>
+						</div>
+						<div id="drawbacks" class="tab-pane fade">
+							<br/><br/>	
+							<p>Paranoia</p>					
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ paranoia }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ paranoia }}"> 
+								
+								</div>
+							</div>
+							<p>Cotton Mouth</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ cotton_mouth }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ cotton_mouth }}"> 
+								
+								</div>
+							</div>
+							<p>Dry Eyes</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ dry_eyes }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ dry_eyes }}"> 
+								
+								</div>
+							</div>
+							<p>Headache</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ headache }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ headache }}"> 
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr/><br/><br/><br/>
+		</div>
+		<div class="row">
+			<div class="jumbotron" id="profile-jumbotron">
+				<div class="header-pages">
+					<h2>Find this strain at <small>{{ user.username }}'s</small> store</h2>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="col-sm-6">
+					<h3>{{ user.username }}'s location</h3>
+					<hr/>
+					<div class="user-map"></div>
+				</div>
+				<div class="col-sm-6">
+					<h3>{{ strain.name }} prices</h3>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>Please select an option</p>
+							<select class="form-control">
+								<option value="1/8oz">1/8 oz  -  ${{ eighth }}.00</option>
+								<option value="1/8oz">1/4 oz  -  ${{ quarter }}.00</option>
+								<option value="1/8oz">1/2 oz  -  ${{ half }}.00</option>
+								<option value="1/8oz">1 oz  -  ${{ ounce }}.00</option>
+							</select>
+						</div>
+						<div class="col-sm-4">
+							<p>Please specity quantity</p>
+							<input type="number" class="form-control" placeholder="quantity">
+						</div>
+						<div class="col-sm-4">
+							<p>Total Price</p>
+
+						</div>
+					</div>
+					<br/>
+					<hr/>
+					<h3>{{ strain.name }} reviews</h3>
+				</div>
+			</div>
+		</div>
+		{% else %}
+			{% if strain.strain_type == 'hybrid' %}
+			<div class="jumbotron {{strain.strain_type}}-banner">
+			<div class="strain-banner">
+				<p>{{ strain.strain_type }}</p>
+				<h1>{{ strain.initials }}</h1>
+				<p>{{ strain.name }}</p>
+			</div>
+		</div>
+		<div class="container">
+			<hr/>
+			<div class="page-header">
+				<h1>{{ strain.name }} <small>{{ strain.strain_type }}...</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<img class="detail-leaf" src="{% static 'images/leaf-circle.png' %}" />
+				</div>
+				<div class="col-sm-8">
+					<div class="description">
+						<p>{{ strain.description }}</p>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<div class="attributes">
+				<div class="center-horizontally">
+					<div class="page-header">
+						<h2>Strain attributes for <small>{{ strain.name }}...</small></h2>
+					</div>
+					<ul class="nav nav-pills nav-justified">
+						<li role="presentation" class="active"><a data-toggle="tab" href="#effects">Effects</a></li>
+						<li role="presentation"><a data-toggle="tab" href="#medical">Medical</a></li>
+						<li role="presentation"><a data-toggle="tab" href="#drawbacks">Drawbacks</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-content">
+						<div id="effects" class="tab-pane fade in active">
+							<br/><br/>
+							<p>Sleepyness</p>			
+							<div class="progress">							
+								<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ sleepyness }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ sleepyness }}">							
+								</div>
+							</div>
+							<p>Creativity</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ creativity }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ creativity }}"> 
+								
+								</div>
+							</div>
+							<p>Munchies</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ munchies }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ munchies }}"> 
+								
+								</div>
+							</div>
+							<p>Giggles</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ giggles }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ giggles }}"> 
+								
+								</div>
+							</div>
+							<p>Happyness</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-5" role="progressbar" aria-valuenow="{{ happy }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ happy }}"> 
+								
+								</div>
+							</div>
+						</div>
+						<div id="medical" class="tab-pane fade">
+							<br/><br/>
+							<p>Pain</p>			
+							<div class="progress">
+
+								<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ pain }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ pain }}"> 							
+								</div>
+							</div>
+							<p>Insomnia</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ insomnia }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ insomnia }}"> 
+								
+								</div>
+							</div>
+							<p>Depression</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ depression }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ depression }}"> 
+								
+								</div>
+							</div>
+							<p>Lack of Appetite</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ lack_of_appetite }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ lack_of_appetite }}"> 
+								
+								</div>
+							</div>
+						</div>
+						<div id="drawbacks" class="tab-pane fade">
+							<br/><br/>	
+							<p>Paranoia</p>					
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-1" role="progressbar" aria-valuenow="{{ paranoia }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ paranoia }}"> 
+								
+								</div>
+							</div>
+							<p>Cotton Mouth</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-2" role="progressbar" aria-valuenow="{{ cotton_mouth }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ cotton_mouth }}"> 
+								
+								</div>
+							</div>
+							<p>Dry Eyes</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-3" role="progressbar" aria-valuenow="{{ dry_eyes }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ dry_eyes }}"> 
+								
+								</div>
+							</div>
+							<p>Headache</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-color-4" role="progressbar" aria-valuenow="{{ headache }}" aria-valuemin="0" aria-valuemax="10" id="progress-bar-width-{{ headache }}"> 
+								
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<hr/>
+		</div>
+		<br/><br/><br/>
+		<div class="row">
+			<div class="jumbotron" id="profile-jumbotron">
+				<div class="header-pages">
+					<h2>Find this strain at <small>{{ user.username }}'s</small> store</h2>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="col-sm-6">
+					<h3>{{ user.username }}'s location</h3>
+					<hr/>
+					<div class="user-map"></div>
+				</div>
+				<div class="col-sm-6">
+					<h3>{{ strain.name }} prices</h3>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>Please select an option</p>
+							<select class="form-control">
+								<option value="1/8oz">1/8 oz  -  ${{ eighth }}.00</option>
+								<option value="1/8oz">1/4 oz  -  ${{ quarter }}.00</option>
+								<option value="1/8oz">1/2 oz  -  ${{ half }}.00</option>
+								<option value="1/8oz">1 oz  -  ${{ ounce }}.00</option>
+							</select>
+						</div>
+						<div class="col-sm-4">
+							<p>Please specity quantity</p>
+							<input type="number" class="form-control" placeholder="quantity">
+						</div>
+						<div class="col-sm-4">
+							<p>Total Price</p>
+
+						</div>
+					</div>
+					<br/>
+					<hr/>
+					<h3>{{ strain.name }} reviews</h3>
+				</div>
+			</div>
+		</div>
+			{% endif %}
+		{% endif %}
+	{% endif %}
+
+{% endblock %}

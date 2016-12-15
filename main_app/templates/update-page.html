@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron" id="green">
+	<h2>{{ user.username }}, <small>here you can update your strain or delete it...</small></h2>
+</div>
+<div class="container">
+	<div class="row">	
+	{% for strain in strains %}
+	{% if strain.user == user %}
+		<div class="col-md-2">
+			<a href="{% url 'update-strain' user.username strain.slug %}"> 
+				<div class="{{ strain.strain_type }}">
+					<p>{{ strain.strain_type }}</p>
+					<h1>{{ strain.initials }}</h1>
+					<p>{{ strain.name }}</p>
+				</div>
+			</a>
+		</div>
+		{% if strains.count > '6' %}
+	</div><div class="row">
+		{% endif %}
+	{% endif %}
+	{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
